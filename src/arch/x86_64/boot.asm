@@ -10,7 +10,7 @@ start:
     call check_multiboot
     call check_cpuid
     call check_long_mode
-    
+
     ; Setup Paging
     call set_up_page_tables
     call enable_paging
@@ -55,7 +55,7 @@ set_up_page_tables:
     mov eax, p2_table
     or eax, 0b11 ; present + writable
     mov [p3_table], eax
-    
+
     ; map each P2 entry to a huge 2MiB page
     mov ecx, 0 ; counter variable
 .map_p2_table:
@@ -145,7 +145,7 @@ error:
 ; Create the stack
 ; '.bss' -> creates a part of the data segment containing statically allocated variables, zero-valued bits
 ; When loading the executatable, GRUB will create the section of required size in memory.
-section .bss 
+section .bss
 ; Set up basic 'Paging'
 align 4096
 p4_table:
