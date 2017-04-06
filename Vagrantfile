@@ -12,7 +12,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "debian/jessie64"
+  #config.vm.box = "debian/jessie64"
+  config.vm.box = "hashicorp/precise64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -72,8 +73,7 @@ Vagrant.configure(2) do |config|
       sudo apt-get install vim -y
       sudo apt-get install qemu -y
       sudo apt-get install curl -y
-      curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
-      multirust default nightly-2015-11-19
+      #curl https://sh.rustup.rs -sSf | sh
   SHELL
 
   config.ssh.forward_x11 = true
