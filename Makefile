@@ -32,7 +32,7 @@ $(iso): $(kernel) $(grub_cfg)
 
 
 $(kernel): cargo $(rust_os) $(assembly_object_files) $(linker_script)
-	@ld -n -T $(linker_script) -o $(kernel) \
+	@ld -n --gc-sections -T $(linker_script) -o $(kernel) \
 		$(assembly_object_files) $(rust_os)
 
 cargo:
