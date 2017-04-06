@@ -1,10 +1,19 @@
 #![feature(lang_items)]
+#![feature(unique)]
+#![feature(const_fn)]
 #![no_std]
 
+// Dependencies included
 extern crate rlibc;
+extern crate volatile;
+extern crate spin;
+
+#[macro_use]
+mod vga_buffer;
 
 #[no_mangle]
 pub extern fn rust_main() {
+/*
 	// ATTENTION: we have a very small stack and no guard page
 
     let hello = b"Hello World!";
@@ -18,6 +27,12 @@ pub extern fn rust_main() {
     // write `Hello World!` to the center of the VGA text buffer
     let buffer_ptr = (0xb8000 + 1988) as *mut _;
     unsafe { *buffer_ptr = hello_colored };
+*/
+
+    // Removes leftover VGA buffer shit from bootloader
+    vga_buffer::clear_screen();
+    println!("Hello World{}", "!");
+    println!("{}", { println!("inner"); "outer" });
 
     loop{}
 }
