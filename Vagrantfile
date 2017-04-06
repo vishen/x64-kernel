@@ -66,17 +66,11 @@ Vagrant.configure(2) do |config|
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
       sudo apt-get update
-      sudo apt-get install curl -y
       sudo apt-get install nasm -y
       sudo apt-get install xorriso -y
       sudo apt-get install git -y
       sudo apt-get install vim -y
       sudo apt-get install qemu -y
-      sudo apt-get install make -y
-      sudo apt-get install cmake -y
-      sudo apt-get install gcc -y
-      sudo apt-get install binutils -y
-      sudo apt-get install libssl-dev -y
       #curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
       #sudo -u vagrant multirust default nightly
       #sudo -u vagrant cargo install xargo

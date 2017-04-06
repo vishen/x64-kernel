@@ -8,12 +8,15 @@ assembly_source_files := $(wildcard src/arch/$(arch)/*.asm)
 assembly_object_files := $(patsubst src/arch/$(arch)/%.asm, \
 	build/arch/$(arch)/%.o, $(assembly_source_files))
 
-.PHONY: all clean iso
+.PHONY: all clean run iso
 
 all: $(kernel)
 
 clean:
 	@rm -r build
+
+run: $(iso)
+	@qemu-system-x86_64 -cdrom $(iso)
 
 iso: $(iso)
 

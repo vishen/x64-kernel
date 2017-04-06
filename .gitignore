@@ -1,0 +1,8 @@
+multiboot_header
+boot
+*.o
+*.bin
+*.iso
+.vagrant
+target
+macbin
