@@ -71,10 +71,9 @@ Vagrant.configure(2) do |config|
       sudo apt-get install git -y
       sudo apt-get install vim -y
       sudo apt-get install qemu -y
-      #curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
-      #sudo -u vagrant multirust default nightly
-      #sudo -u vagrant cargo install xargo
-      #echo "export PATH=~/.multirust/toolchains/nightly/cargo/bin:$PATH" >> /home/vagrant/.bashrc
+      sudo apt-get install curl -y
+      curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
+      multirust default nightly-2015-11-19
   SHELL
 
   config.ssh.forward_x11 = true
